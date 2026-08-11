@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Funnel-Ready Asset Kit</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#12181f;
+    --paper:#f6f4ee;
+    --line:#d8d3c4;
+    --signal:#c65d2e;
+    --awareness:#3a6b8a;
+    --consideration:#8a6a3a;
+    --conversion:#3a7a52;
+    --panel:#ffffff;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:48px 24px 96px;}
+  header{margin-bottom:40px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--signal);
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(30px,5vw,44px);
+    line-height:1.08;
+    margin:0 0 14px;
+    letter-spacing:-.01em;
+  }
+  .sub{font-size:15px;color:#5b5648;max-width:56ch;line-height:1.55;}
+
+  form{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:28px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-bottom:36px;
+  }
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field.full{grid-column:1/-1;}
+  label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#7a7566;
+  }
+  input,select,textarea{
+    font-family:'Inter',sans-serif;
+    font-size:14.5px;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    background:#fdfcf9;
+    color:var(--ink);
+  }
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--signal);outline-offset:1px;}
+  textarea{resize:vertical;min-height:56px;font-family:'Inter',sans-serif;}
+
+  .runbar{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin-top:4px;}
+  button{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    padding:13px 22px;
+    border-radius:2px;
+    cursor:pointer;
+  }
+  button:disabled{opacity:.45;cursor:default;}
+  .status{font-size:13px;color:#7a7566;font-family:'IBM Plex Mono',monospace;}
+
+  .funnel{display:flex;flex-direction:column;gap:2px;margin-bottom:8px;}
+  .stagebar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-bottom:32px;}
+  .stagebar div{
+    height:4px;border-radius:2px;
+  }
+  .stagebar .a{background:var(--awareness);}
+  .stagebar .c{background:var(--consideration);}
+  .stagebar .v{background:var(--conversion);}
+
+  .stage{
+    border:1px solid var(--line);
+    border-radius:2px;
+    margin-bottom:22px;
+    background:var(--panel);
+  }
+  .stage-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    padding:16px 20px;
+    border-bottom:1px solid var(--line);
+  }
+  .stage-head h2{
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    font-weight:600;
+    margin:0;
+  }
+  .stage[data-stage="awareness"] .stage-head{border-top:4px solid var(--awareness);}
+  .stage[data-stage="consideration"] .stage-head{border-top:4px solid var(--consideration);}
+  .stage[data-stage="conversion"] .stage-head{border-top:4px solid var(--conversion);}
+  .stage-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:#7a7566;
+  }
+  .stage-body{padding:18px 20px 22px;}
+  .block{margin-bottom:20px;}
+  .block h3{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#7a7566;
+    margin:0 0 10px;
+  }
+  .platform{
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:12px 14px;
+    margin-bottom:10px;
+    background:#fdfcf9;
+  }
+  .platform .pname{font-size:12px;font-weight:600;margin-bottom:6px;}
+  .platform .line{font-size:13.5px;line-height:1.5;margin:3px 0;}
+  .platform .line b{font-weight:600;color:#3a3626;}
+  ul.kpis{margin:0;padding-left:18px;font-size:13.5px;line-height:1.7;}
+  .utm{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    background:#fdfcf9;
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:10px 12px;
+    word-break:break-all;
+    margin-bottom:8px;
+  }
+  .empty{
+    text-align:center;
+    padding:60px 20px;
+    color:#9a9484;
+    font-size:14px;
+    border:1px dashed var(--line);
+    border-radius:2px;
+  }
+  .err{
+    background:#fbe9e4;
+    border:1px solid #e0a48f;
+    color:#8a3b1f;
+    padding:12px 16px;
+    border-radius:2px;
+    font-size:13.5px;
+    margin-bottom:20px;
+  }
+  footer{
+    margin-top:40px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:#9a9484;
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Campaign Brief → Funnel-Ready Asset Kit</div>
+    <h1>One brief in. A full funnel out.</h1>
+    <p class="sub">Enter a campaign brief once. Get paid ad variants for Meta, TikTok, and Google, organic captions, UTM-tagged links, and the KPIs worth watching — organized by funnel stage, not just by platform.</p>
+  </header>
+
+  <form id="briefForm">
+    <div class="field">
+      <label for="product">Product / brand</label>
+      <input id="product" placeholder="e.g. handmade ceramic mugs" required>
+    </div>
+    <div class="field">
+      <label for="audience">Target audience</label>
+      <input id="audience" placeholder="e.g. gift shoppers, 25–40, urban" required>
+    </div>
+    <div class="field">
+      <label for="objective">Primary objective</label>
+      <select id="objective">
+        <option value="full-funnel">Full funnel (awareness → conversion)</option>
+        <option value="awareness">Awareness only</option>
+        <option value="consideration">Consideration only</option>
+        <option value="conversion">Conversion only</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="budget">Budget tier</label>
+      <select id="budget">
+        <option value="test">Test / small ($5–20/day)</option>
+        <option value="mid">Mid ($20–100/day)</option>
+        <option value="scaled">Scaled ($100+/day)</option>
+      </select>
+    </div>
+    <div class="field full">
+      <label for="tone">Brand tone (optional)</label>
+      <input id="tone" placeholder="e.g. warm, a little playful, no exclamation points">
+    </div>
+    <div class="field full">
+      <label for="url">Destination URL (for UTM links, optional)</label>
+      <input id="url" placeholder="https://yourstore.com/product">
+    </div>
+    <div class="runbar">
+      <button type="submit" id="genBtn">Generate kit</button>
+      <span class="status" id="status"></span>
+    </div>
+  </form>
+
+  <div class="funnel">
+    <div class="stagebar"><div class="a"></div><div class="c"></div><div class="v"></div></div>
+  </div>
+
+  <div id="output">
+    <div class="empty">Fill in the brief above and generate to see your kit here.</div>
+  </div>
+
+  <footer>Campaign Brief → Funnel-Ready Asset Kit · open source · runs on the Claude API</footer>
+</div>
+
+<script>
+const form = document.getElementById('briefForm');
+const btn = document.getElementById('genBtn');
+const status = document.getElementById('status');
+const output = document.getElementById('output');
+
+const stageMeta = {
+  awareness: { label: 'Awareness', tag: 'Get seen by the right people' },
+  consideration: { label: 'Consideration', tag: 'Earn a second look' },
+  conversion: { label: 'Conversion', tag: 'Close the sale' }
+};
+
+function slugify(s){
+  return (s||'').toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+}
+
+function buildUtm(baseUrl, stage, platform, campaignSlug){
+  if(!baseUrl) return null;
+  try{
+    const u = new URL(baseUrl);
+    u.searchParams.set('utm_source', platform.toLowerCase());
+    u.searchParams.set('utm_medium', 'paid-social');
+    u.searchParams.set('utm_campaign', campaignSlug);
+    u.searchParams.set('utm_content', stage);
+    return u.toString();
+  }catch(e){ return null; }
+}
+
+function renderStage(stageKey, data, ctx){
+  const meta = stageMeta[stageKey];
+  const el = document.createElement('div');
+  el.className = 'stage';
+  el.dataset.stage = stageKey;
+
+  let html = `<div class="stage-head"><h2>${meta.label}</h2><span class="stage-tag">${meta.tag}</span></div><div class="stage-body">`;
+
+  html += `<div class="block"><h3>Paid ad variants</h3>`;
+  (data.paid || []).forEach(p => {
+    html += `<div class="platform"><div class="pname">${p.platform}</div>`;
+    if(p.headline) html += `<div class="line"><b>Headline:</b> ${p.headline}</div>`;
+    if(p.primary_text) html += `<div class="line"><b>Primary text:</b> ${p.primary_text}</div>`;
+    if(p.description) html += `<div class="line"><b>Description:</b> ${p.description}</div>`;
+    if(p.cta) html += `<div class="line"><b>CTA:</b> ${p.cta}</div>`;
+    html += `</div>`;
+  });
+  html += `</div>`;
+
+  html += `<div class="block"><h3>Organic captions</h3>`;
+  (data.organic || []).forEach(o => {
+    html += `<div class="platform"><div class="pname">${o.platform}</div><div class="line">${o.caption}</div></div>`;
+  });
+  html += `</div>`;
+
+  if(ctx.baseUrl){
+    html += `<div class="block"><h3>UTM-tagged links</h3>`;
+    (data.paid || []).forEach(p => {
+      const link = buildUtm(ctx.baseUrl, stageKey, p.platform, ctx.campaignSlug);
+      if(link) html += `<div class="utm">${link}</div>`;
+    });
+    html += `</div>`;
+  }
+
+  html += `<div class="block"><h3>KPIs to watch</h3><ul class="kpis">`;
+  (data.kpis || []).forEach(k => { html += `<li>${k}</li>`; });
+  html += `</ul></div>`;
+
+  html += `</div>`;
+  el.innerHTML = html;
+  return el;
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const product = document.getElementById('product').value.trim();
+  const audience = document.getElementById('audience').value.trim();
+  const objective = document.getElementById('objective').value;
+  const budget = document.getElementById('budget').value;
+  const tone = document.getElementById('tone').value.trim();
+  const baseUrl = document.getElementById('url').value.trim();
+  const campaignSlug = slugify(product) || 'campaign';
+
+  const stages = objective === 'full-funnel'
+    ? ['awareness','consideration','conversion']
+    : [objective];
+
+  btn.disabled = true;
+  status.textContent = 'Generating…';
+  output.innerHTML = '';
+
+  const systemPrompt = `You are a senior performance marketer building a funnel-ready asset kit from a single campaign brief. You produce platform-native ad copy (Meta, TikTok, Google) and organic captions (Instagram, TikTok, Facebook), plus the KPIs a performance marketer would actually track at each funnel stage. Respect real platform constraints: Google Search headlines max 30 characters, descriptions max 90 characters. Meta primary text should be punchy, under 125 characters where possible. TikTok copy should sound native to the platform, not like a repurposed Meta ad. Never invent fake statistics or claims about the product. Return ONLY valid JSON, no markdown fences, no commentary, matching this exact shape:
+{
+  "awareness": { "paid": [{"platform":"Meta","primary_text":"...","headline":"...","cta":"..."},{"platform":"TikTok","primary_text":"...","cta":"..."},{"platform":"Google","headline":"...","description":"..."}], "organic": [{"platform":"Instagram","caption":"..."},{"platform":"TikTok","caption":"..."}], "kpis": ["...","..."] },
+  "consideration": { same shape },
+  "conversion": { same shape }
+}
+Only include the funnel stages that were requested. Tailor tone, hook, and CTA strength to the stage: awareness = curiosity/attention, consideration = value/proof, conversion = urgency/offer. Adjust ambition and volume of variants to the stated budget tier (test tier = fewer, tighter variants; scaled tier = more variant depth).`;
+
+  const userPrompt = `Product/brand: ${product}
+Target audience: ${audience}
+Funnel stages needed: ${stages.join(', ')}
+Budget tier: ${budget}
+Brand tone: ${tone || 'not specified, use a clear, confident, non-salesy default'}`;
+
+  try{
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 4000,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: userPrompt }]
+      })
+    });
+    const data = await resp.json();
+    const textBlock = (data.content || []).find(b => b.type === 'text');
+    if(!textBlock) throw new Error('No text response from model');
+    let clean = textBlock.text.trim().replace(/^```json/,'').replace(/^```/,'').replace(/```$/,'').trim();
+    const parsed = JSON.parse(clean);
+
+    stages.forEach(stageKey => {
+      if(parsed[stageKey]){
+        output.appendChild(renderStage(stageKey, parsed[stageKey], { baseUrl, campaignSlug }));
+      }
+    });
+    status.textContent = 'Done.';
+  }catch(err){
+    output.innerHTML = `<div class="err">Something went wrong generating the kit: ${err.message}. Try again, or simplify the brief.</div>`;
+    status.textContent = '';
+  }finally{
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
