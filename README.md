@@ -4,16 +4,16 @@ One campaign brief in. A full funnel out.
 
 Enter a product, audience, objective, and budget tier once, and get back:
 
-- **Paid ad variants** for Meta, TikTok, and Google — copy that respects
+- **Paid ad variants** for Meta, TikTok, and Google copy that respects
   each platform's real constraints (Google Search headlines ≤ 30
   characters, descriptions ≤ 90, etc.)
 - **Organic captions** for Instagram, TikTok, and Facebook
 - **UTM-tagged links**, auto-built from your destination URL
-- **The KPIs worth watching**, tailored to funnel stage — awareness,
+- **The KPIs worth watching**, tailored to funnel stage; awareness,
   consideration, and conversion each track different things, and this
   tool doesn't hand you the same five metrics for all three
 
-Everything is organized by funnel stage first, platform second — because
+Everything is organized by funnel stage first, platform second because
 that's how a campaign actually gets planned, not how most ad copy
 generators structure their output.
 
@@ -30,7 +30,7 @@ Free to run, free to fork, no data stored.
 ### Claude artifact
 
 `claude-artifact.html` is self-contained and calls the Claude API through
-claude.ai's built-in proxy — no API key needed on your end. Paste it into
+claude.ai's built-in proxy, no API key needed on your end. Paste it into
 a new artifact in claude.ai, or run it in any environment where Claude can
 create artifacts that call its own API.
 
@@ -87,7 +87,7 @@ funnel-asset-kit/
 
 ## Contributing
 
-Forks and pull requests welcome — adding platforms (Pinterest, LinkedIn
+Forks and pull requests welcome, adding platforms (Pinterest, LinkedIn
 Ads), localized copy, or a CSV export of the generated kit would all be
 natural next steps.
 
