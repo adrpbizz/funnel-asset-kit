@@ -23,9 +23,9 @@ Free to run, free to fork, no data stored.
 
 | Version | Where it runs | Setup |
 |---|---|---|
-| **Claude artifact** | Directly inside claude.ai | None — open the `.html` file as an artifact and go |
-| **Replit app** | Your own public URL | `replit-app/` — add one API key, click Run |
-| **Relay.app workflow** | No-code automation, Slack/Sheets output | `docs/RELAY_SETUP.md` — paste a spec into Relay's builder |
+| **Claude artifact** | Directly inside claude.ai | None, open the `.html` file as an artifact and go |
+| **Replit app** | Your own public URL | `replit-app/`, add one API key, click Run |
+| **Relay.app workflow** | No-code automation, Slack/Sheets output | `docs/RELAY_SETUP.md`, paste a spec into Relay's builder |
 
 ### Claude artifact
 
