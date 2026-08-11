@@ -50,7 +50,7 @@ it's safe to make the Repl public.
 
 See `docs/RELAY_SETUP.md`. Relay builds workflows from a natural-language
 description rather than an importable file, so that doc is a script you
-paste into Relay's builder — it scaffolds the steps, including a
+paste into Relay's builder, it scaffolds the steps, including a
 human-approval gate before anything gets written to your Sheet or posted
 to Slack.
 
@@ -63,7 +63,7 @@ to Slack.
 | **Conversion** | Urgency, offer, a clear next step | CVR, CPA, ROAS |
 
 The prompt behind this tool encodes that logic directly, so the same
-product brief produces genuinely different copy at each stage — not the
+product brief produces genuinely different copy at each stage, not the
 same ad reworded three times.
 
 ## Project structure
