@@ -40,7 +40,7 @@ create artifacts that call its own API.
    `replit-app/` folder).
 2. In Replit's **Secrets** tab, add `ANTHROPIC_API_KEY` with your own key.
 3. Click **Run**. Replit installs `requirements.txt` automatically.
-4. Share the public URL Replit gives you — that's a live, free tool
+4. Share the public URL Replit gives you, that's a live, free tool
    anyone can use.
 
 The API key stays server-side (`app.py` holds it, not the browser), so
